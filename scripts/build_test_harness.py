@@ -49,7 +49,7 @@ def build_tf() -> None:
     print(f"Found {total_dirs} TensorFlow API directories to build in parallel.")
     success_count = 0
 
-    with concurrent.futures.ProcessPoolExecutor(max_workers=64) as executor:
+    with concurrent.futures.ProcessPoolExecutor(max_workers=2) as executor:
         futures = [executor.submit(build_one_tf_api, tf_dir) for tf_dir in tf_dirs]
 
         for future in concurrent.futures.as_completed(futures):
@@ -188,9 +188,15 @@ def build_one_torch_api(torch_dir: str) -> tuple[str, int, str]:
 
 
 
-def build_torch() -> None:
+def build_torch(apis=None) -> None:
     """Find and build all PyTorch APIs in parallel."""
-    torch_dirs = glob.glob("torch.*")
+    if apis:
+        torch_dirs = [
+            f"torch_cpu/{api}"
+            for api in apis
+        ]
+    else:
+        torch_dirs = glob.glob("torch_cpu/torch.*")
     total_dirs = len(torch_dirs)
     if total_dirs == 0:
         print("No PyTorch API directories found to build.")
@@ -199,7 +205,7 @@ def build_torch() -> None:
     print(f"Found {total_dirs} PyTorch API directories to build in parallel.")
     success_count = 0
 
-    with concurrent.futures.ProcessPoolExecutor(max_workers=64) as executor:
+    with concurrent.futures.ProcessPoolExecutor(max_workers=2) as executor:
         futures = [executor.submit(build_one_torch_api, torch_dir) for torch_dir in torch_dirs]
         for future in concurrent.futures.as_completed(futures):
             try:
@@ -215,12 +221,20 @@ def build_torch() -> None:
     print(f"Built {success_count}/{total_dirs} PyTorch APIs successfully.")
 
 
-def build_torch_fuzz(time_budget: int=180, no_compile: bool=False) -> None:
+def build_torch_fuzz(
+    time_budget: int=180,
+    no_compile: bool=False,
+    apis=None
+) -> None:
+
     print("Building PyTorch fuzz harness...")
-    os.system("cp -r template/torch_cpu/* .") # Copy all files from the template directory
-    os.system(f"python3 -u copy.py --time_budget {time_budget}") # Copy the fuzz.sh and build.sh files with proper settings
+
+    os.system("cp -r template/torch_cpu/* .")
+    os.system(f"python3 -u copy.py --time_budget {time_budget}")
+
     if not no_compile:
-        build_torch()
+        build_torch(apis)
+
     check_torch_build()
 
 def build_torch_cov(time_budget: int=180, no_compile: bool=False) -> None:
@@ -275,6 +289,14 @@ def main():
         required=False,
         help="Version of the library to use.",
     )
+    parser.add_argument(
+        "--apis",
+        nargs="*",
+        type=str,
+        default=None,
+        help="Specify APIs to build, e.g. torch.add torch.matmul",
+    )
+
     args = parser.parse_args()
 
     if args.dll == "tf" and args.mode == "cov":
@@ -291,7 +313,7 @@ def main():
         if args.check_build:
             check_torch_build()
         else:
-            build_torch_fuzz(no_compile=args.no_compile, time_budget=args.time_budget)
+            build_torch_fuzz(time_budget=args.time_budget,no_compile=args.no_compile,apis=args.apis)
     elif args.dll == "torch" and args.mode == "cov":
         if args.check_build:
             check_torch_build()

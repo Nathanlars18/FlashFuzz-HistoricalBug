@@ -107,6 +107,10 @@ def main():
     with open(api_list, "r") as f:
         apis = f.read().splitlines()
 
+    # If user specifies APIs, only run selected APIs
+    if args.apis:
+        apis = [api for api in apis if api in args.apis]
+
     # filter apis not start with tf or torch
     apis = [api for api in apis if api.startswith("tf.") or api.startswith("torch.")]
 
