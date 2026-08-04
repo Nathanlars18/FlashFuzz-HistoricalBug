@@ -38,7 +38,10 @@ def copy_fuzz_utils(time_budget: int = 180):
     fuzzer_utils_h = "fuzzer_utils.h"
     fuzzer_utils_cpp = "fuzzer_utils.cpp"
     # Find all directories starting with torch
-    torch_dirs = [d for d in glob.glob("torch.*") if os.path.isdir(d)]
+    torch_dirs = [
+        d for d in glob.glob("torch_cpu/torch.*")
+        if os.path.isdir(d)
+    ]
 
     if not torch_dirs:
         print("No directories starting with 'torch' found!")

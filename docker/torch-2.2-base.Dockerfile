@@ -47,6 +47,7 @@ RUN python3 -m pip install --upgrade pip setuptools wheel bs4 \
 # Set the working directory
 WORKDIR /root
 
-RUN git clone --recursive https://github.com/pytorch/pytorch.git -b v2.2.0
+RUN git config --global http.version HTTP/1.1 && \
+    git clone --recursive --depth 1 https://github.com/pytorch/pytorch.git -b v2.2.0
 
 CMD ["bash"]

@@ -24,7 +24,7 @@ RUN pip install -r requirements.txt  && \
     -DBUILD_TEST=0 \
     -G "Unix Makefiles" \
     .. && \
-    make -j$(nproc) 
+    make -j2
 
 COPY scripts /root/fuzz/
 
