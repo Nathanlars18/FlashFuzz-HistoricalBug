@@ -1,7 +1,7 @@
 #!/bin/bash
 
 JOBS=1
-WORKERS=2
+WORKERS=1
 MAX_LEN=128
 RSS_LIMIT=2048
 
@@ -14,7 +14,10 @@ python3 random_seed.py
 mkdir -p artifacts corpus
 
 LOG=fuzz-0.log
-exec > >(stdbuf -oL -eL tee -a "$LOG") 2>&1
+
+rm -f "$LOG"
+
+exec > >(stdbuf -oL -eL tee  "$LOG") 2>&1
 
 
 export OMP_NUM_THREADS=1           # OpenMP threads for ops :contentReference[oaicite:1]{index=1}
