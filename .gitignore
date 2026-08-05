@@ -234,3 +234,5 @@ ___tmp
 .venv-tf219
 
 tmp
+_fuzz_result/
+research_notes/archive/

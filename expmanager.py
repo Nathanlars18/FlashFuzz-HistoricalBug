@@ -47,8 +47,12 @@ class Experiment():
         self.check_valid = check_valid
         self.time_budget = time_budget
         self.status = Status.NOT_STARTED
-        self.image_name = f"ncsuswat/flashfuzz:{self.dll}{self.ver}-{self.mode}{'-gpu' if gpu else ''}"
         self.vs = vs
+        self.image_name = (
+            f"ncsuswat/flashfuzz:{self.dll}{self.ver}-{self.mode}-{self.vs}"
+            if self.vs
+            else f"ncsuswat/flashfuzz:{self.dll}{self.ver}-{self.mode}{'-gpu' if gpu else ''}"
+        )
         self.gpu = gpu
         # include vs tag in container name if provided
         self.container_name = (
@@ -243,6 +247,7 @@ class Experiment():
 
     def execute_command(self, command: str):
         cmd = f'docker exec {self.container_name} sh -c "{command}"'
+        print("EXEC:", cmd)
         try:
             subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
         except Exception:
@@ -689,11 +694,17 @@ class Scheduler():
             if triggered:
                 # Only act if not already completed
                 if exp.status not in (Status.COMPLETED,):
-                    print(f"Time budget exceeded for {exp.api} (>{timeout_seconds}s). Forcing docker cleanup...")
+                    print(f"Time budget exceeded for {exp.api} (>{timeout_seconds}s). Waiting for log flush...")
+
                     try:
-                        exp.force_remove_container()
+                        import time
+
+                        # Give libFuzzer time to flush fuzz-0.log
+                        time.sleep(5)
+
+                        exp.stop_docker_container()
+
                     finally:
-                        # Mark as failed due to timeout if not already set
                         if exp.status != Status.COMPLETED:
                             exp.status = Status.FAILED
 

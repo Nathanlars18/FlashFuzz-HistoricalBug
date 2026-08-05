@@ -99,7 +99,7 @@ def parse_args():
 def main():
     start_time = time.time()
     args = parse_args()
-    if not args.vs:
+    if not args.vs or args.vs == "clean":
         api_list = f"api_list/{args.dll}{args.version}-flashfuzz.txt"
     else:
         print(f"Using baseline: {args.vs}")
