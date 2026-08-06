@@ -29,7 +29,9 @@ WORKDIR /root/fuzz
 # Copy the test harness
 COPY testharness/torch_cpu /root/fuzz
 
-RUN  python3 -u build_test_harness.py --dll torch --mode fuzz --no-compile
+RUN python3 -u build_test_harness.py \
+    --dll torch \
+    --mode cov
 
 WORKDIR /root
 
