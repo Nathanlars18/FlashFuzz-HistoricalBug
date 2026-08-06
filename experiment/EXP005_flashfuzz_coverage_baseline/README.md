@@ -111,3 +111,39 @@ Coverage trend:
 ## Next Step
 
 Run remaining APIs.
+### torch.mul
+
+
+Configuration:
+
+- Time budget: 600s
+
+
+Coverage result:
+
+| Metric | Value |
+|-|-|
+| Covered branches | 297 |
+| Total branches | 30094 |
+| Branch coverage | 0.99% |
+
+
+Coverage evolution:
+
+| Time | Covered branches |
+|-|-|
+|0-60s|286|
+|60-120s|286|
+|120-180s|286|
+|180-240s|286|
+|240-300s|292|
+|300-360s|296|
+|360-420s|296|
+|420-480s|297|
+|480-540s|297|
+|540-600s|297|
+
+
+Result:
+
+Successfully completed.
