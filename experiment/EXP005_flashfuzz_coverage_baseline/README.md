@@ -183,3 +183,39 @@ Coverage evolution:
 Result:
 
 Successfully completed.
+### torch.addmm
+
+
+Configuration:
+
+- Time budget: 600s
+
+
+Coverage result:
+
+| Metric | Value |
+|----|----|
+| Covered branches | 126 |
+| Total branches | 30094 |
+| Branch coverage | 0.42% |
+
+
+Coverage evolution:
+
+| Time | Covered branches |
+|-|-|
+|0-60s|124|
+|60-120s|125|
+|120-180s|125|
+|180-240s|126|
+|240-300s|126|
+|300-360s|126|
+|360-420s|126|
+|420-480s|126|
+|480-540s|126|
+|540-600s|126|
+
+
+Result:
+
+Successfully completed.
