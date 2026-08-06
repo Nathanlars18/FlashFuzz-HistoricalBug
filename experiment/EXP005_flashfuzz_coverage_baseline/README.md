@@ -219,3 +219,39 @@ Coverage evolution:
 Result:
 
 Successfully completed.
+### torch.relu
+
+
+Configuration:
+
+- Time budget: 600s
+
+
+Coverage result:
+
+| Metric | Value |
+|----|----|
+| Covered branches |151|
+| Total branches |30094|
+| Branch coverage |0.50%|
+
+
+Coverage evolution:
+
+| Time | Covered branches |
+|-|-|
+|0-60s|142|
+|60-120s|142|
+|120-180s|142|
+|180-240s|144|
+|240-300s|144|
+|300-360s|144|
+|360-420s|151|
+|420-480s|151|
+|480-540s|151|
+|540-600s|151|
+
+
+Result:
+
+Successfully completed.
