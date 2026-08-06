@@ -248,10 +248,30 @@ class Experiment():
     def execute_command(self, command: str):
         cmd = f'docker exec {self.container_name} sh -c "{command}"'
         print("EXEC:", cmd)
+
         try:
-            subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
-        except Exception:
-            pass
+            result = subprocess.run(
+                cmd,
+                shell=True,
+                check=True,
+                capture_output=True,
+                text=True
+            )
+
+            if result.stdout:
+                print(result.stdout)
+
+            if result.stderr:
+                print("STDERR:")
+                print(result.stderr)
+
+        except subprocess.CalledProcessError as e:
+            print("Command failed!")
+            print("stdout:")
+            print(e.stdout)
+            print("stderr:")
+            print(e.stderr)
+            raise
 
     def stop_docker_container(self):
         cmd = f"docker stop {self.container_name}"
