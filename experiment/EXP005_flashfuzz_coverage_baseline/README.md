@@ -227,3 +227,83 @@ Run coverage baseline on 10 selected APIs:
 Time budget:
 
 600 seconds/API
+# EXP005 FlashFuzz Coverage Baseline
+
+## Goal
+
+Evaluate FlashFuzz generated harness coverage performance on PyTorch 2.2 CPU APIs.
+
+This experiment provides baseline data for later comparison with historical Bug Pattern enhanced harness generation.
+
+
+## Environment
+
+- Framework: PyTorch 2.2
+- Platform: WSL2 Ubuntu
+- Mode: coverage fuzzing
+- Compiler: clang
+- Backend: CPU
+
+
+## Problems and Solutions
+
+
+### Problem 1: Coverage container failed to collect profraw files
+
+Symptom:
+
+Coverage experiment completed but no coverage_data generated.
+
+
+Cause:
+
+The coverage harness generation and result collection scripts were not correctly handling profraw output.
+
+
+Solution:
+
+Modified:
+
+- docker/torch-2.2-cov.Dockerfile
+- scripts/template/torch_cpu_cov/copy.py
+
+to correctly generate and copy profraw files.
+
+
+Commit:
+
+xxxxx
+
+
+---
+
+
+### Problem 2: Coverage result collection failure
+
+Symptom:
+
+Experiment finished but coverage summary could not be generated.
+
+
+Cause:
+
+expmanager.py did not correctly copy coverage files between containers.
+
+
+Solution:
+
+Modified expmanager.py to improve coverage result collection.
+
+Commit:
+
+eba1e89
+
+
+---
+
+## API Results
+
+|API|Time|Coverage|
+|-|-|-|
+|torch.add|600s|235 branches|
+
