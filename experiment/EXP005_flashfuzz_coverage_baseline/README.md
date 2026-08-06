@@ -307,3 +307,133 @@ eba1e89
 |-|-|-|
 |torch.add|600s|235 branches|
 
+# EXP005 FlashFuzz Coverage Baseline
+
+
+## 1. Experiment Goal
+
+This experiment evaluates the coverage performance of FlashFuzz generated harnesses on PyTorch CPU APIs.
+
+The purpose of this experiment is to establish a baseline for later comparison with historical Bug Pattern enhanced harness generation.
+
+
+## 2. Environment
+
+- Framework: PyTorch 2.2
+- Backend: CPU
+- Platform: WSL2 Ubuntu
+- Compiler: clang 14
+- Fuzzing engine: libFuzzer
+- Coverage mode: LLVM source coverage
+
+
+## 3. Experimental Configuration
+
+- Mode: coverage fuzzing
+- Time budget: 600 seconds per API
+- Target APIs:
+
+torch.add
+torch.mul
+torch.matmul
+torch.mm
+torch.addmm
+torch.relu
+torch.sigmoid
+torch.softmax
+torch.tanh
+torch.exp
+
+
+## 4. Implementation Issues and Solutions
+
+
+### Issue 1: Torch coverage image and harness generation
+
+#### Symptom
+
+The coverage experiment could not correctly generate coverage data.
+
+#### Cause
+
+The PyTorch coverage Docker environment and harness generation scripts were not fully compatible.
+
+#### Solution
+
+Modified:
+
+- docker/torch-2.2-cov.Dockerfile
+- scripts/template/torch_cpu_cov/copy.py
+
+to correctly build the coverage environment and collect generated coverage files.
+
+
+Commit:
+
+789d9af7
+
+
+---
+
+
+### Issue 2: Coverage result collection failure
+
+#### Symptom
+
+The fuzzing process finished, but coverage results were not correctly copied from Docker containers.
+
+#### Cause
+
+The result collection logic in expmanager.py did not correctly handle coverage output.
+
+#### Solution
+
+Modified expmanager.py to improve coverage result collection and debugging information.
+
+Commit:
+
+eba1e89d
+
+
+---
+
+
+## 5. Results
+
+
+### torch.add
+
+
+Configuration:
+
+- Time budget: 600s
+
+
+Coverage result:
+
+| Metric | Value |
+|----|----|
+| Covered branches | 235 |
+| Total branches | 30094 |
+| Branch coverage | 0.78% |
+
+
+Coverage evolution:
+
+| Time | Covered branches |
+|-|-|
+|0-60s|202|
+|60-120s|202|
+|120-180s|203|
+|180-240s|203|
+|240-300s|233|
+|300-360s|233|
+|360-420s|233|
+|420-480s|235|
+|480-540s|235|
+|540-600s|235|
+
+
+Result:
+
+Successfully completed.
