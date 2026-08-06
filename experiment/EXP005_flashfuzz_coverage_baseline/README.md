@@ -147,3 +147,39 @@ Coverage evolution:
 Result:
 
 Successfully completed.
+### torch.matmul
+
+
+Configuration:
+
+- Time budget: 600s
+
+
+Coverage result:
+
+| Metric | Value |
+|-|-|
+| Covered branches | 606 |
+| Total branches | 30094 |
+| Branch coverage | 2.01% |
+
+
+Coverage evolution:
+
+| Time | Covered branches |
+|-|-|
+|0-60s|329|
+|60-120s|338|
+|120-180s|443|
+|180-240s|509|
+|240-300s|515|
+|300-360s|588|
+|360-420s|590|
+|420-480s|598|
+|480-540s|606|
+|540-600s|606|
+
+
+Result:
+
+Successfully completed.
