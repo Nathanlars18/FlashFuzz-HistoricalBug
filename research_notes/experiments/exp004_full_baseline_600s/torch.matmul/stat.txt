@@ -1,0 +1,5 @@
+api: torch.matmul
+rounds: 116326
+invalid: 191058
+valid: 0
+validity_ratio: 0.000000

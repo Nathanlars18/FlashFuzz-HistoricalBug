@@ -1,0 +1,5 @@
+api: torch.sigmoid
+rounds: 473836
+invalid: 179456
+valid: 294380
+validity_ratio: 0.621270

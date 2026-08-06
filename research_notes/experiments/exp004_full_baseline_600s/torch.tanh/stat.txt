@@ -1,0 +1,5 @@
+api: torch.tanh
+rounds: 351935
+invalid: 333786
+valid: 18149
+validity_ratio: 0.051569

@@ -1,0 +1,5 @@
+api: torch.mul
+rounds: 66580
+invalid: 12840
+valid: 53740
+validity_ratio: 0.807149
