@@ -355,3 +355,34 @@ Coverage evolution:
 |420-480s|271|
 |480-540s|271|
 |540-600s|271|
+### torch.tanh
+
+
+Configuration:
+
+- Time budget: 600s
+
+
+Coverage result:
+
+| Metric | Value |
+|----|----|
+| Covered branches | 241 |
+| Total branches | 30094 |
+| Branch coverage | 0.80% |
+
+
+Coverage evolution:
+
+| Time | Covered branches |
+|-|-|
+|0-60s|226|
+|60-120s|238|
+|120-180s|239|
+|180-240s|239|
+|240-300s|241|
+|300-360s|241|
+|360-420s|241|
+|420-480s|241|
+|480-540s|241|
+|540-600s|241|
