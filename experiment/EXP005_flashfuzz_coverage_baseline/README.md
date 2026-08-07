@@ -323,3 +323,35 @@ Coverage evolution:
 |420-480s|164|
 |480-540s|164|
 |540-600s|164|
+
+### torch.softmax
+
+
+Configuration:
+
+- Time budget: 600s
+
+
+Coverage result:
+
+| Metric | Value |
+|----|----|
+| Covered branches | 271 |
+| Total branches | 30094 |
+| Branch coverage | 0.90% |
+
+
+Coverage evolution:
+
+| Time | Covered branches |
+|-|-|
+|0-60s|267|
+|60-120s|269|
+|120-180s|269|
+|180-240s|271|
+|240-300s|271|
+|300-360s|271|
+|360-420s|271|
+|420-480s|271|
+|480-540s|271|
+|540-600s|271|
