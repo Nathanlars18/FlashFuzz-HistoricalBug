@@ -417,3 +417,45 @@ Coverage evolution:
 |420-480s|188|
 |480-540s|188|
 |540-600s|188|
+
+# EXP005 FlashFuzz Coverage Evaluation
+## Experiment Versions
+
+
+### Version 1: Original FlashFuzz Coverage Baseline
+
+
+Location:
+
+original_flashfuzz/
+
+
+LLM:
+
+Original FlashFuzz configuration
+
+
+Purpose:
+
+Historical coverage baseline.
+
+
+---
+
+### Version 2: DeepSeek Reproduction
+
+
+Location:
+
+deepseek_reproduction/
+
+
+LLM:
+
+DeepSeek-V4-Pro
+
+
+Purpose:
+
+Collect coverage baseline under
+the final experimental LLM setting.
