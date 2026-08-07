@@ -70,3 +70,9 @@ Collected Bug Patterns:
 |001|#191238|Crash|
 |002|#71774|Wrong Result|
 |003|#104832|Wrong Result|
+|004|#170573|Invalid Output Constraint|
+
+
+Total:
+
+4 historical bug patterns

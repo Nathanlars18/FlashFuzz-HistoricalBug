@@ -195,3 +195,16 @@ Possible future directions:
 - Pattern retrieval mechanism
 - Multiple bug pattern fusion
 - Better prompt construction
+
+## Current Status
+
+Target API:
+- torch.matmul
+
+Experiment setting:
+- Single API feasibility study
+- Historical bug pattern:
+  - matmul_pattern_001.json
+
+Goal:
+Verify whether historical bug information can influence LLM-generated harnesses.
