@@ -292,3 +292,34 @@ Coverage evolution:
 Result:
 
 Successfully completed.
+### torch.sigmoid
+
+
+Configuration:
+
+- Time budget: 600s
+
+
+Coverage result:
+
+| Metric | Value |
+|----|----|
+| Covered branches | 164 |
+| Total branches | 30094 |
+| Branch coverage | 0.54% |
+
+
+Coverage evolution:
+
+| Time | Covered branches |
+|-|-|
+|0-60s|164|
+|60-120s|164|
+|120-180s|164|
+|180-240s|164|
+|240-300s|164|
+|300-360s|164|
+|360-420s|164|
+|420-480s|164|
+|480-540s|164|
+|540-600s|164|
