@@ -60,7 +60,24 @@ Confidence:
 - Incorrect Output
 - Timeout/Hang
 - Memory Error
+The observable behavior used to determine whether a bug is triggered.
 
+Types:
+
+- Crash:
+  Process termination, SIGSEGV, SIGBUS, SIGABRT.
+
+- Exception:
+  RuntimeError, ValueError, AssertionError.
+
+- Wrong Result:
+  Output differs from reference result.
+
+- Hang:
+  Operation exceeds execution time limit.
+
+- Memory Corruption:
+  Memory outside valid tensor region is modified.
 
 ## 6. Harness Strategy
 
