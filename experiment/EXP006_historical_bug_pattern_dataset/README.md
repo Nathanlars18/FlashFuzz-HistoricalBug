@@ -58,3 +58,15 @@ Initial categories:
 ## Goal
 
 Transform historical bug knowledge into executable harness generation constraints.
+## Current Dataset Status
+
+Target API:
+- torch.matmul
+
+Collected Bug Patterns:
+
+| ID | Issue | Type |
+|-|-|-|
+|001|#191238|Crash|
+|002|#71774|Wrong Result|
+|003|#104832|Wrong Result|
