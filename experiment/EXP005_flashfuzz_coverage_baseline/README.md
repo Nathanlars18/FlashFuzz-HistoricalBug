@@ -386,3 +386,34 @@ Coverage evolution:
 |420-480s|241|
 |480-540s|241|
 |540-600s|241|
+### torch.exp
+
+
+Configuration:
+
+- Time budget: 600s
+
+
+Coverage result:
+
+| Metric | Value |
+|----|----|
+| Covered branches | 188 |
+| Total branches | 30094 |
+| Branch coverage | 0.62% |
+
+
+Coverage evolution:
+
+| Time | Covered branches |
+|-|-|
+|0-60s|178|
+|60-120s|178|
+|120-180s|186|
+|180-240s|187|
+|240-300s|187|
+|300-360s|188|
+|360-420s|188|
+|420-480s|188|
+|480-540s|188|
+|540-600s|188|
