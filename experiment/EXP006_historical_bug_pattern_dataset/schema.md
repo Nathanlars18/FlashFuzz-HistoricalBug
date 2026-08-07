@@ -70,3 +70,29 @@ Confidence:
 - Operation Sequence
 
 - Oracle Construction
+## 7. Verification Status
+
+Describe the confidence level of the historical bug information.
+
+
+Fields:
+
+- level:
+  - fixed
+  - official_triaged
+  - user_reported
+
+- fixed:
+  - true
+  - false
+
+
+Example:
+
+```json
+{
+  "verification_status": {
+    "level": "official_triaged",
+    "fixed": false
+  }
+}

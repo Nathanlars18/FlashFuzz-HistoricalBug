@@ -8,9 +8,13 @@
     "id": "#191238",
     "repository": "pytorch/pytorch"
   },
-
+  "verification_status": {
+    "level": "official_triaged",
+    "fixed": false
+  },
   "bug_category": [
-    "Memory Layout"
+    "Memory Layout",
+    "Backend Dispatch"
   ],
 
   "trigger_condition": {
