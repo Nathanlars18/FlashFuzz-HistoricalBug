@@ -1,11 +1,11 @@
 Filters (ALL required): ['', 'aten/src/ATen/native']
 Files matched: 465
-Covered branches: 250
+Covered branches: 257
 Total branches: 30094
-Branch coverage: 0.83%
+Branch coverage: 0.85%
 
 Per-file (covered/total pct path):
-59/156  37.82% aten/src/ATen/native/Copy.cpp
+66/156  42.31% aten/src/ATen/native/Copy.cpp
 48/108  44.44% aten/src/ATen/native/cpu/CopyKernel.cpp
 39/76  51.32% aten/src/ATen/native/cpu/Loops.h
 21/38  55.26% aten/src/ATen/native/TypeProperties.cpp
