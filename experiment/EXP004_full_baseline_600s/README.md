@@ -96,6 +96,32 @@ summary_by_api.csv
 
 The baseline results show that FlashFuzz can generate a large number of fuzzing executions, but the quality of generated inputs varies significantly across different APIs.
 
+## DeepSeek-V4-Pro Harness Generation Result
+
+Generated harnesses:
+
+10/10 APIs
+
+APIs:
+
+- torch.add
+- torch.addmm
+- torch.exp
+- torch.matmul
+- torch.mm
+- torch.mul
+- torch.relu
+- torch.sigmoid
+- torch.softmax
+- torch.tanh
+
+Generation directory:
+
+deepseek_reproduction/harness_generation/
+
+Status:
+
+Successfully generated.
 The validity ratio ranges from 0% to 80.7%, indicating that API semantic constraints strongly affect the effectiveness of generated harnesses.
 
 

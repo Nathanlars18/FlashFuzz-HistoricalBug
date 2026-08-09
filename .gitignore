@@ -236,3 +236,14 @@ ___tmp
 tmp
 _fuzz_result/
 research_notes/archive/
+
+# FlashFuzz generated runtime files
+**/corpus/
+**/artifacts/
+**/fuzz
+**/*.profraw
+**/*.log
+
+# Temporary reproduction experiments
+experiment/**/deepseek_reproduction_60s/
+
