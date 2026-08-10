@@ -208,3 +208,76 @@ Experiment setting:
 
 Goal:
 Verify whether historical bug information can influence LLM-generated harnesses.
+
+# EXP007 Pattern Prompt Injection
+
+## Goal
+
+Evaluate whether historical PyTorch bug patterns can enhance LLM-based fuzzing harness generation.
+
+
+## Compared Methods
+
+
+### Baseline
+
+LLM generates harness using:
+
+- API documentation
+- helper skeleton
+
+
+### Pattern Enhanced
+
+LLM receives:
+
+- API documentation
+- historical bug pattern information
+
+
+## API
+
+torch.matmul
+
+
+## Experiment Pipeline
+
+
+Bug Report
+
+↓
+
+Pattern Extraction
+
+↓
+
+Prompt Construction
+
+↓
+
+DeepSeek Harness Generation
+
+↓
+
+Compilation
+
+↓
+
+libFuzzer Testing
+
+
+## Results
+
+Pattern enhanced harness generated additional bug-oriented strategies:
+
+- unaligned tensor memory
+- float32 constraint
+- offset based mutation
+
+
+## Future Work
+
+- More historical bug patterns
+- More PyTorch APIs
+- Statistical evaluation with repeated runs
+

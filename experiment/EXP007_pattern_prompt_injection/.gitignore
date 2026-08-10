@@ -1,0 +1,32 @@
+# fuzz generated corpus
+**/corpus/
+**/corpus_seed_backup/
+
+# fuzz binary
+**/fuzz
+
+# LLVM coverage data
+**/*.profraw
+**/*.profdata
+
+# coverage temporary
+coverage_data/
+coverage_html/
+
+# runtime logs
+**/error.log
+**/error_inputs.log
+**/fuzz-0.log
+
+# python cache
+__pycache__/
+*.pyc
+
+# coverage experiment temporary files
+coverage/
+
+# generated experiment output
+output/
+
+# experiment generated outputs
+output/
