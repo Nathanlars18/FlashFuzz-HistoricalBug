@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+
+
+# Compiled binaries
+**/fuzz
+
+
+# Fuzz generated corpus
+**/corpus/
+**/corpus_seed_backup/
+
+
+# Coverage temporary files
+*.profraw
+*.profdata
+coverage_html/
+
+
+# Large experiment outputs
+coverage/**/coverage_data/
+
+
+# Keep important logs
+# fuzz runtime
+corpus/
+corpus_seed_backup/
+fuzz
+artifacts/
+
+# llvm
+*.profraw
+*.profdata
