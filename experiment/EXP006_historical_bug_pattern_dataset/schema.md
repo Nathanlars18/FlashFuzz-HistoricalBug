@@ -28,8 +28,44 @@ Available categories:
 7 Backend Dispatch
 8 Concurrency
 
+## 3. Pattern Abstraction
 
-## 3. Trigger Condition
+API Specific Pattern:
+
+The concrete bug pattern extracted from a specific API.
+
+Example:
+
+torch.matmul_out_view_memory_bug
+
+
+General Category:
+
+The abstract category that may apply to multiple APIs.
+
+Available categories:
+
+1. Shape Boundary
+2. Dtype Boundary
+3. Device Transition
+4. Memory Layout Boundary
+5. Numerical Edge Case
+6. Gradient State Boundary
+7. Backend Dispatch Boundary
+8. Execution State Boundary
+
+
+Transferability:
+
+Describe whether this pattern may transfer to other APIs.
+
+Values:
+
+- high
+- medium
+- low
+
+## 4. Trigger Condition
 
 - Shape Trigger
 - Dtype Trigger
@@ -42,7 +78,7 @@ Available categories:
 Concrete Constraints:
 
 
-## 4. Root Cause
+## 5. Root Cause
 
 - API Layer
 - ATen Layer
@@ -53,7 +89,7 @@ Concrete Constraints:
 Confidence:
 
 
-## 5. Bug Oracle
+## 6. Bug Oracle
 
 - Crash
 - Exception
@@ -79,7 +115,7 @@ Types:
 - Memory Corruption:
   Memory outside valid tensor region is modified.
 
-## 6. Harness Strategy
+## 7. Harness Strategy
 
 - Input Mutation
 - Tensor Construction
@@ -87,7 +123,7 @@ Types:
 - Operation Sequence
 
 - Oracle Construction
-## 7. Verification Status
+## 8. Verification Status
 
 Describe the confidence level of the historical bug information.
 

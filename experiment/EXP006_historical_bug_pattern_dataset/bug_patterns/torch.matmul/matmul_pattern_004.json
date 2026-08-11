@@ -21,7 +21,17 @@
     "Memory Safety",
     "Output Tensor Constraint"
   ],
+  "pattern_abstraction": {
 
+    "api_specific_pattern":
+    "matmul_out_view_storage_boundary_bug",
+
+    "general_category":
+    "Memory Layout Boundary",
+
+    "transferability":
+    "high"
+  },
 
   "trigger_condition": {
 

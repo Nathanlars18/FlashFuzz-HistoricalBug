@@ -16,7 +16,17 @@
     "Memory Layout",
     "Backend Dispatch"
   ],
+  "pattern_abstraction": {
 
+    "api_specific_pattern":
+    "matmul_unaligned_memory_access_bug",
+
+    "general_category":
+    "Memory Layout Boundary",
+
+    "transferability":
+    "medium"
+  },
   "trigger_condition": {
     "shape": {
       "condition": "matrix multiplication with M=1"

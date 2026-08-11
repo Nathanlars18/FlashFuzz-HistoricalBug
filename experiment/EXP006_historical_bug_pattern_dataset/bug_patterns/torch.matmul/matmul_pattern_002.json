@@ -20,6 +20,17 @@
     "Backend Dispatch",
     "Correctness"
   ],
+  "pattern_abstraction": {
+ 
+    "api_specific_pattern":
+    "matmul_zero_dimension_integer_backend_bug",
+
+    "general_category":
+    "Shape Boundary",
+
+    "transferability":
+    "high"
+  },
 
   "trigger_condition": {
     "shape": {

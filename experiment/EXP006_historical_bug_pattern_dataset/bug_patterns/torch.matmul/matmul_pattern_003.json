@@ -18,7 +18,17 @@
     "Memory Layout",
     "Backend Dispatch"
   ],
+  "pattern_abstraction": {
 
+    "api_specific_pattern":
+    "matmul_noncontiguous_output_view_backend_bug",
+
+    "general_category":
+    "Memory Layout Boundary",
+
+    "transferability":
+    "medium"
+  },
 
   "trigger_condition": {
 
