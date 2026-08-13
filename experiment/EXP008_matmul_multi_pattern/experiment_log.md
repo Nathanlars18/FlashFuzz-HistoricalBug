@@ -168,3 +168,11 @@ Generated profraw:
 
 Status:
 SUCCESS
+## Baseline Note
+
+The baseline directory was inherited during experiment development.
+For final evaluation, the baseline is unified with EXP007 baseline,
+which represents the original FlashFuzz-style harness without
+historical bug pattern guidance.
+
+Therefore, EXP008 baseline is not included in comparison.

@@ -583,3 +583,134 @@ The fuzzer explored diverse tensor configurations including:
 
 However, many generated inputs triggered expected PyTorch shape mismatch exceptions,
 indicating that further semantic constraint guidance may improve kernel-level exploration.
+# EXP007 Pattern Prompt Injection Experiment
+
+## Baseline Fuzzing Experiment
+
+### Target
+
+API:
+torch.matmul
+
+Framework:
+PyTorch 2.2
+
+Method:
+Original FlashFuzz-style harness without historical bug pattern knowledge
+
+Time Budget:
+600s
+
+
+## Fuzz Configuration
+
+Container:
+
+ncsuswat/flashfuzz:torch2.2-fuzz
+
+
+Command:
+
+bash fuzz.sh > baseline_600s.log 2>&1
+
+
+## Result
+
+Executed units:
+81004
+
+Average exec/sec:
+134
+
+New units added:
+293
+
+Peak RSS:
+444 MB
+
+Artifacts:
+0
+
+Corpus size:
+691
+
+
+## Observation
+
+The baseline harness performs unrestricted tensor generation.
+It serves as the comparison target for pattern-enhanced harnesses.、
+---
+
+# Single Historical Bug Pattern Experiment
+
+
+## Method
+
+Historical bug information was injected into LLM harness generation.
+
+The generated harness integrates one representative historical bug pattern into tensor generation constraints.
+
+
+## Configuration
+
+API:
+
+torch.matmul
+
+
+Time Budget:
+
+600s
+
+
+Container:
+
+ncsuswat/flashfuzz:torch2.2-fuzz
+
+
+Command:
+
+bash fuzz.sh > pattern_600s.log 2>&1
+
+
+## Result
+
+Executed units:
+
+140341
+
+
+Average exec/sec:
+
+233
+
+
+New units added:
+
+281
+
+
+Peak RSS:
+
+465 MB
+
+
+Artifacts:
+
+0
+
+
+Corpus size:
+
+1768
+
+
+## Observation
+
+Compared with baseline:
+
+- Execution throughput increased.
+- Corpus size increased significantly.
+- The generated harness explores more structured input space.
+
+Coverage evaluation is required for final effectiveness comparison.

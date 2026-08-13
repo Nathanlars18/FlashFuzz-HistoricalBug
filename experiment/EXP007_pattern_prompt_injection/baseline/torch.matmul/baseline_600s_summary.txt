@@ -1,0 +1,10 @@
+Experiment: EXP007 baseline
+API: torch.matmul
+Time budget: 600s
+
+Executed units: 81004
+Average exec/sec: 134
+New units added: 293
+Peak RSS: 444 MB
+Artifacts: 0
+Corpus size: 691
