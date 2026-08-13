@@ -247,3 +247,14 @@ research_notes/archive/
 # Temporary reproduction experiments
 experiment/**/deepseek_reproduction_60s/
 
+# Fuzzing generated artifacts
+experiment/*/output/*/corpus/
+experiment/*/output/*/fuzz
+experiment/*/output/*/default.profraw
+experiment/*/output/*/fuzz-*.log
+experiment/*/output/*/results/
+experiment/*/output/*/coverage_html/
+
+# Coverage temporary files
+*.profraw
+*.profdata
