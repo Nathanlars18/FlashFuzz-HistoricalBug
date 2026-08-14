@@ -258,3 +258,6 @@ experiment/*/output/*/coverage_html/
 # Coverage temporary files
 *.profraw
 *.profdata
+# Coverage analysis temporary scripts
+**/run_coverage_intervals.sh
+**/scripts_collect_coverage_*.py
