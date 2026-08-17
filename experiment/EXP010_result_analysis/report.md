@@ -284,3 +284,27 @@ For torch.matmul:
 
 
 These results support the hypothesis that historical bug knowledge can improve automated testing
+
+## 4. Historical Bug Knowledge to Harness Analysis
+
+To verify whether historical bug knowledge is effectively utilized, we performed a Pattern-Harness mapping analysis.
+
+The analysis shows that historical knowledge affects the generated harness in three major aspects:
+
+1. Tensor transformation:
+   - non-contiguous tensors
+   - tensor view transformations
+   - memory layout variations
+
+2. API invocation:
+   - introduction of matmul_out testing
+   - abnormal output tensor generation
+
+3. Testing strategy:
+   - generalized exploration instead of literal bug reproduction
+
+Detailed analysis:
+
+- analysis/torch.matmul_pattern_mapping.csv
+- analysis/torch.matmul_knowledge_traceability.csv
+- analysis/torch.matmul_harness_analysis.md
