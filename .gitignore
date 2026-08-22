@@ -261,3 +261,4 @@ experiment/*/output/*/coverage_html/
 # Coverage analysis temporary scripts
 **/run_coverage_intervals.sh
 **/scripts_collect_coverage_*.py
+dataset/DLFrameBRCode/

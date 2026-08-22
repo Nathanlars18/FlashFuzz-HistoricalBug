@@ -1,0 +1,59 @@
+{
+  "knowledge_id": "dtype_device_compatibility_boundary_001",
+
+  "source_patterns": [
+    "torch_mul_dtype_boundary_001"
+  ],
+
+  "general_category": "Dtype Boundary",
+
+  "knowledge_description": "Unsupported dtype and device combinations can expose hidden operator implementation gaps in deep learning frameworks.",
+
+  "risk_dimensions": {
+    "shape": [],
+    "dtype": [
+      "bool",
+      "special dtypes"
+    ],
+    "device": [
+      "CUDA",
+      "CPU"
+    ],
+    "layout": [],
+    "memory": []
+  },
+
+  "testing_strategy": {
+    "input_generation": [
+      "Generate tensors with different dtypes",
+      "Generate dtype-device combinations",
+      "Test operators with uncommon tensor types"
+    ],
+
+    "mutation_operations": [
+      "change tensor dtype",
+      "move tensors between CPU and CUDA",
+      "combine different dtype inputs"
+    ]
+  },
+
+  "harness_guidance": {
+    "tensor_constraints": [
+      "Include bool and uncommon dtype cases",
+      "Explore dtype-device combinations",
+      "Do not restrict inputs to default floating point tensors"
+    ],
+
+    "api_invocation": "Call target API with tensors across different dtype and device configurations"
+  },
+
+  "oracle_strategy": {
+    "expected_failures": [
+      "RuntimeError",
+      "Unsupported operation",
+      "Missing kernel implementation"
+    ]
+  },
+
+  "confidence": "High"
+}

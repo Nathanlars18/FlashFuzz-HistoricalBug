@@ -9,6 +9,7 @@ Fields:
 
 - Knowledge ID
 - Source Pattern ID
+- Source Report
 - API Name
 - Original Issue
 - verification_status
@@ -66,6 +67,8 @@ General categories:
 6. Gradient State Boundary
 7. Backend Dispatch Boundary
 8. Execution State Boundary
+9. Graph Transformation Boundary
+10. API Contract Boundary
 
 
 ---
@@ -110,6 +113,11 @@ Possible operation state risks.
 
 Describe why the bug can happen.
 
+Fields:
+
+- Layer
+
+- Description
 
 Possible layers:
 
@@ -161,6 +169,8 @@ high / medium / low
 
 Describe whether this knowledge represents
 a general testing principle beyond the original API.
+
+- Reason
 
 ---
 

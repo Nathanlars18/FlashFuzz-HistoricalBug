@@ -1,0 +1,60 @@
+{
+  "knowledge_id": "memory_layout_strided_tensor_001",
+
+  "source_patterns": [
+    "torch_kthvalue_memory_layout_boundary_001"
+  ],
+
+  "general_category": "Memory Layout Boundary",
+
+  "knowledge_description": "Tensor memory layout differences, especially non-contiguous tensors and unusual strides, can expose hidden implementation bugs in deep learning framework operators.",
+
+  "risk_dimensions": {
+    "shape": [],
+    "dtype": [],
+    "device": [
+      "CUDA"
+    ],
+    "layout": [
+      "non-contiguous tensor",
+      "strided tensor"
+    ],
+    "memory": [
+      "non-standard stride"
+    ]
+  },
+
+  "testing_strategy": {
+    "input_generation": [
+      "Generate tensors with non-contiguous memory layout",
+      "Generate tensors using slicing operations",
+      "Generate tensors with unusual stride patterns"
+    ],
+
+    "mutation_operations": [
+      "apply slicing with step size",
+      "remove tensor contiguity",
+      "modify tensor stride patterns"
+    ]
+  },
+
+  "harness_guidance": {
+    "tensor_constraints": [
+      "Do not restrict inputs to contiguous tensors only",
+      "Include strided tensor cases",
+      "Preserve valid tensor metadata while exploring layout variations"
+    ],
+
+    "api_invocation": "Call target API with both contiguous and non-contiguous tensors"
+  },
+
+  "oracle_strategy": {
+    "expected_failures": [
+      "Incorrect output",
+      "Wrong values or indices",
+      "Unexpected behavior compared with contiguous tensor reference"
+    ]
+  },
+
+  "confidence": "High"
+}

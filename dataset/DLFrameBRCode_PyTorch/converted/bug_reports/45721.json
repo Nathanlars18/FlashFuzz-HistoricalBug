@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "bug_id": "45721",
+    "title": "kthvalue incorrect with strided GPU tensor",
+    "date": ""
+  },
+
+  "source_information": {
+    "repository": "pytorch/pytorch",
+    "issue_id": "45721",
+    "source_type": "GitHub Issue",
+    "issue_url": "https://github.com/pytorch/pytorch/issues/45721",
+    "pr_id": "",
+    "commit_id": ""
+  },
+
+  "api_information": {
+    "primary_api": "torch.kthvalue",
+    "affected_apis": [],
+    "operator": "kthvalue",
+    "module": "torch"
+  },
+
+  "bug_description": "torch.kthvalue produces incorrect values and indices when the input tensor is a strided CUDA tensor.",
+
+  "trigger_conditions": {
+    "shape": [],
+    "dtype": [],
+    "device": [
+      "CUDA"
+    ],
+    "backend": [],
+    "layout": [
+      "non-contiguous tensor",
+      "strided tensor"
+    ],
+    "memory": [
+      "unusual tensor stride"
+    ],
+    "state": [],
+    "operation_context": "Calling torch.kthvalue on a tensor created through slicing with non-contiguous memory layout."
+  },
+
+  "failure_behavior": {
+    "type": "Incorrect Output",
+    "description": "The returned kth value and index are incorrect compared with the expected result.",
+    "oracle": "Incorrect Output"
+  },
+
+  "root_cause_information": {
+    "layer": "Tensor Layout Handling",
+    "description": "The bug is related to incorrect handling of tensors with non-standard memory strides."
+  },
+
+  "fix_information": {
+    "fixed": true,
+    "fix_description": "",
+    "commit": ""
+  },
+
+  "verification_information": {
+    "status": "official_triaged",
+    "confidence": "High"
+  },
+
+  "raw_content_reference": "raw_reports/45721_summary_with_code.txt"
+}

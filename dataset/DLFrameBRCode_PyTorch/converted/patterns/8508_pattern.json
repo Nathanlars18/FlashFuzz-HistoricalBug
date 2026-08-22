@@ -1,0 +1,33 @@
+{
+  "pattern_id": "torch_multivariate_normal_shape_boundary_001",
+
+  "source_bugs": [
+    "8508"
+  ],
+
+  "api_specific_pattern": {
+    "name": "multivariate_normal_scalar_tensor_crash",
+    "target_api": "torch.distributions.MultivariateNormal"
+  },
+
+  "general_pattern": {
+    "category": "Shape Boundary",
+    "description": "Bugs caused by invalid or boundary tensor dimensions, including scalar tensors and unexpected tensor ranks."
+  },
+
+  "trigger_features": {
+    "shape": [
+      "scalar tensor",
+      "zero-dimensional tensor",
+      "rank mismatch"
+    ],
+    "dtype": [],
+    "device": [],
+    "layout": [],
+    "memory": []
+  },
+
+  "mapping_reason": "The bug is triggered by providing a scalar tensor where a vector tensor is expected, therefore it belongs to the Shape Boundary category.",
+
+  "confidence": "High"
+}

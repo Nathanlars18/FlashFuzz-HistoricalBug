@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "bug_id": "66086",
+    "title": "Backwards compatibility is broken between 1.9.1 and nightly for torch.cosine_similarity",
+    "date": ""
+  },
+
+  "source_information": {
+    "repository": "pytorch/pytorch",
+    "issue_id": "66086",
+    "source_type": "GitHub Issue",
+    "issue_url": "https://github.com/pytorch/pytorch/issues/66086"
+    "pr_id": "",
+    "commit_id": ""
+  },
+
+  "api_information": {
+    "primary_api": "torch.cosine_similarity",
+    "affected_apis": [],
+    "operator": "cosine_similarity",
+    "module": "torch"
+  },
+
+  "bug_description": "torch.cosine_similarity accepted tensors with different numbers of dimensions in PyTorch 1.9.1, but the behavior changed in a nightly version where the same input caused a RuntimeError.",
+
+  "trigger_conditions": {
+    "shape": [
+      "Input tensors have different numbers of dimensions",
+      "x1 is 4-dimensional",
+      "x2 is 3-dimensional"
+    ],
+    "dtype": [],
+    "device": [
+      "CPU"
+    ],
+    "backend": [],
+    "layout": [],
+    "memory": [],
+    "state": [],
+    "operation_context": "Calling torch.cosine_similarity with tensors whose dimensions require broadcasting"
+  },
+
+  "failure_behavior": {
+    "type": "Exception",
+    "description": "RuntimeError: cosine_similarity requires both inputs to have the same number of dimensions",
+    "oracle": "Exception"
+  },
+
+  "root_cause_information": {
+    "layer": "API Behavior Validation",
+    "description": "The bug is related to changed validation behavior for tensor dimension compatibility."
+  },
+
+  "fix_information": {
+    "fixed": true,
+    "fix_description": "Behavior compatibility issue was addressed in PyTorch development.",
+    "commit": ""
+  },
+
+  "verification_information": {
+    "status": "official_triaged",
+    "confidence": "high"
+  },
+
+  "raw_content_reference": "raw_reports/66086_summary_with_code.txt"
+}

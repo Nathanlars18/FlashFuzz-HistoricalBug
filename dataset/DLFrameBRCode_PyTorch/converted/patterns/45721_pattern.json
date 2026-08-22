@@ -1,0 +1,36 @@
+{
+  "pattern_id": "torch_kthvalue_memory_layout_boundary_001",
+
+  "source_bugs": [
+    "45721"
+  ],
+
+  "api_specific_pattern": {
+    "name": "kthvalue_strided_tensor_incorrect_result",
+    "target_api": "torch.kthvalue"
+  },
+
+  "general_pattern": {
+    "category": "Memory Layout Boundary",
+    "description": "Bugs caused by incorrect handling of tensors with non-contiguous memory layouts or unusual strides."
+  },
+
+  "trigger_features": {
+    "shape": [],
+    "dtype": [],
+    "device": [
+      "CUDA"
+    ],
+    "layout": [
+      "non-contiguous tensor",
+      "strided tensor"
+    ],
+    "memory": [
+      "non-standard stride"
+    ]
+  },
+
+  "mapping_reason": "The bug is triggered by applying kthvalue on a tensor with a non-contiguous strided memory layout, therefore it belongs to the Memory Layout Boundary category.",
+
+  "confidence": "High"
+}

@@ -1,0 +1,57 @@
+{
+  "knowledge_id": "shape_boundary_scalar_tensor_001",
+
+  "source_patterns": [
+    "torch_multivariate_normal_shape_boundary_001"
+  ],
+
+  "general_category": "Shape Boundary",
+
+  "knowledge_description": "Boundary tensor ranks, especially scalar tensors and zero-dimensional tensors, can expose missing validation and unsupported assumptions in deep learning framework APIs.",
+
+  "risk_dimensions": {
+    "shape": [
+      "scalar tensor",
+      "zero-dimensional tensor",
+      "rank boundary"
+    ],
+    "dtype": [],
+    "device": [],
+    "layout": [],
+    "memory": []
+  },
+
+  "testing_strategy": {
+    "input_generation": [
+      "Generate scalar tensors",
+      "Generate zero-dimensional tensors",
+      "Generate tensors with different ranks"
+    ],
+
+    "mutation_operations": [
+      "reduce tensor dimensions",
+      "convert vector tensors into scalar tensors",
+      "remove singleton dimensions"
+    ]
+  },
+
+  "harness_guidance": {
+    "tensor_constraints": [
+      "Include zero-dimensional tensor cases",
+      "Do not restrict generated tensors to one-dimensional or higher ranks",
+      "Explore rank boundary conditions"
+    ],
+
+    "api_invocation": "Call target API with tensors across different dimensionalities"
+  },
+
+  "oracle_strategy": {
+    "expected_failures": [
+      "Crash",
+      "Unexpected exception",
+      "Missing validation behavior"
+    ]
+  },
+
+  "confidence": "High"
+}

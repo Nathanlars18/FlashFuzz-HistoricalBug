@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "bug_id": "8508",
+    "title": "Crash with SIGFPE due to unhandled cases in distributions.MultivariateNormal",
+    "date": ""
+  },
+
+  "source_information": {
+    "repository": "pytorch/pytorch",
+    "issue_id": "8508",
+    "source_type": "GitHub Issue",
+    "issue_url": "https://github.com/pytorch/pytorch/issues/8508",
+    "pr_id": "",
+    "commit_id": ""
+  },
+
+  "api_information": {
+    "primary_api": "torch.distributions.MultivariateNormal",
+    "affected_apis": [],
+    "operator": "MultivariateNormal",
+    "module": "torch.distributions"
+  },
+
+  "bug_description": "torch.distributions.MultivariateNormal crashes when provided with a scalar tensor input, although scalar tensors are valid tensor objects in PyTorch.",
+
+  "trigger_conditions": {
+    "shape": [
+      "scalar tensor input",
+      "0-dimensional tensor",
+      "expected vector tensor input"
+    ],
+    "dtype": [],
+    "device": [],
+    "backend": [],
+    "layout": [],
+    "memory": [],
+    "state": [],
+    "operation_context": "Creating a MultivariateNormal distribution with a scalar location tensor."
+  },
+
+  "failure_behavior": {
+    "type": "Crash",
+    "description": "The API triggers a SIGFPE crash instead of raising a valid input error.",
+    "oracle": "Crash"
+  },
+
+  "root_cause_information": {
+    "layer": "Input Validation",
+    "description": "The bug is related to insufficient validation of scalar tensor inputs."
+  },
+
+  "fix_information": {
+    "fixed": true,
+    "fix_description": "",
+    "commit": ""
+  },
+
+  "verification_information": {
+    "status": "official_triaged",
+    "confidence": "High"
+  },
+
+  "raw_content_reference": "raw_reports/8508_summary_with_code.txt"
+}

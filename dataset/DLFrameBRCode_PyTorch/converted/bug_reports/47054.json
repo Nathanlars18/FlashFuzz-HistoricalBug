@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "bug_id": "47054",
+    "title": "max_pool1d crashes (segfault)",
+    "date": ""
+  },
+
+  "source_information": {
+    "repository": "pytorch/pytorch",
+    "issue_id": "47054",
+    "source_type": "GitHub Issue",
+    "issue_url": "https://github.com/pytorch/pytorch/issues/47054"
+    "pr_id": "",
+    "commit_id": ""
+  },
+
+  "api_information": {
+    "primary_api": "torch.nn.functional.max_pool1d",
+    "affected_apis": [],
+    "operator": "max_pool1d",
+    "module": "torch.nn.functional"
+  },
+
+  "bug_description": "torch.nn.functional.max_pool1d crashes when processing a tensor with a non-contiguous memory layout created by permutation.",
+
+  "trigger_conditions": {
+    "shape": [
+      "3-dimensional tensor"
+    ],
+    "dtype": [],
+    "device": [
+      "CPU",
+      "CUDA"
+    ],
+    "backend": [],
+    "layout": [
+      "non-contiguous tensor",
+      "permuted tensor"
+    ],
+    "memory": [
+      "non-standard stride"
+    ],
+    "state": [],
+    "operation_context": "Calling max_pool1d on a tensor after applying permute operation."
+  },
+
+  "failure_behavior": {
+    "type": "Crash",
+    "description": "The operation causes a segmentation fault during execution.",
+    "oracle": "Crash"
+  },
+
+  "root_cause_information": {
+    "layer": "Tensor Layout Handling",
+    "description": "The bug is related to insufficient handling of non-contiguous tensors with modified memory layouts."
+  },
+
+  "fix_information": {
+    "fixed": true,
+    "fix_description": "",
+    "commit": ""
+  },
+
+  "verification_information": {
+    "status": "official_triaged",
+    "confidence": "High"
+  },
+
+  "raw_content_reference": "raw_reports/47054_summary_with_code.txt"
+}

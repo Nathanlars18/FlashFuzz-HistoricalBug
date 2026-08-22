@@ -1,0 +1,31 @@
+{
+  "pattern_id": "torch_cosine_similarity_shape_boundary_001"
+
+  "source_bugs": [
+    "66086"
+  ],
+
+  "api_specific_pattern": {
+    "name": "cosine_similarity_dimension_mismatch",
+    "target_api": "torch.cosine_similarity"
+  },
+
+  "general_pattern": {
+    "category": "Shape Boundary",
+    "description": "Bugs caused by abnormal tensor dimensions or incompatible tensor shapes."
+  },
+
+  "trigger_features": {
+    "shape": [
+      "different tensor ranks",
+      "dimension mismatch",
+      "broadcasting compatibility issue"
+    ],
+    "dtype": [],
+    "device": []
+  },
+
+  "mapping_reason": "The bug is caused by incompatible tensor dimension handling, therefore it is categorized as a Shape Boundary pattern.",
+
+  "confidence": "High"
+}

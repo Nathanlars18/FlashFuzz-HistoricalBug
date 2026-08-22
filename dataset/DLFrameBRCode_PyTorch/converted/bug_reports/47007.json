@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "bug_id": "47007",
+    "title": "RuntimeError: _mul_cuda_ not implemented for 'Bool'",
+    "date": ""
+  },
+
+  "source_information": {
+    "repository": "pytorch/pytorch",
+    "issue_id": "47007",
+    "source_type": "GitHub Issue",
+    "issue_url": "https://github.com/pytorch/pytorch/issues/47007",
+    "pr_id": "",
+    "commit_id": ""
+  },
+
+  "api_information": {
+    "primary_api": "torch.mul",
+    "affected_apis": [],
+    "operator": "mul",
+    "module": "torch"
+  },
+
+  "bug_description": "torch.mul does not support multiplication involving CUDA bool tensors although the operation works correctly on CPU and worked in previous PyTorch versions.",
+
+  "trigger_conditions": {
+    "shape": [],
+    "dtype": [
+      "bool tensor"
+    ],
+    "device": [
+      "CUDA"
+    ],
+    "backend": [
+      "CUDA backend"
+    ],
+    "layout": [],
+    "memory": [],
+    "state": [],
+    "operation_context": "Performing multiplication between boolean values and CUDA boolean tensors."
+  },
+
+  "failure_behavior": {
+    "type": "Exception",
+    "description": "The operation raises RuntimeError because CUDA multiplication kernel for Bool dtype is not implemented.",
+    "oracle": "Exception"
+  },
+
+  "root_cause_information": {
+    "layer": "Dtype and Backend Compatibility",
+    "description": "The bug is related to unsupported dtype and backend combinations during operator execution."
+  },
+
+  "fix_information": {
+    "fixed": true,
+    "fix_description": "",
+    "commit": ""
+  },
+
+  "verification_information": {
+    "status": "official_triaged",
+    "confidence": "High"
+  },
+
+  "raw_content_reference": "raw_reports/47007_summary_with_code.txt"
+}

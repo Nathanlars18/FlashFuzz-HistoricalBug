@@ -1,0 +1,33 @@
+{
+  "pattern_id": "torch_mul_dtype_boundary_001",
+
+  "source_bugs": [
+    "47007"
+  ],
+
+  "api_specific_pattern": {
+    "name": "mul_bool_cuda_dtype_unsupported",
+    "target_api": "torch.mul"
+  },
+
+  "general_pattern": {
+    "category": "Dtype Boundary",
+    "description": "Bugs caused by unsupported or unexpected behavior for specific tensor data types or dtype-device combinations."
+  },
+
+  "trigger_features": {
+    "shape": [],
+    "dtype": [
+      "bool tensor"
+    ],
+    "device": [
+      "CUDA"
+    ],
+    "layout": [],
+    "memory": []
+  },
+
+  "mapping_reason": "The bug is triggered by an unsupported operation involving Bool dtype tensors on CUDA backend, therefore it belongs to the Dtype Boundary category.",
+
+  "confidence": "High"
+}

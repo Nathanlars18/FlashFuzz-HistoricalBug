@@ -5,6 +5,7 @@
 
 - Pattern ID
 - API Name
+- Source Report
 - Source
 - Date
 - Severity
@@ -53,6 +54,8 @@ Available categories:
 6. Gradient State Boundary
 7. Backend Dispatch Boundary
 8. Execution State Boundary
+9. Graph Transformation Boundary
+10. API Contract Boundary
 
 
 Transferability:
